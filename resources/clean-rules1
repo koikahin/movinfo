@@ -1,0 +1,9 @@
+// File names normally start with the actual movie name followed by several fancy 
+// stuff. We try to find these fancy stuff and replace everything that follows.
+
+[.-] -->  // replace fancy characters with a space
+[\[{(].* --> // movie names are normally at the beginning of the line, and they don't have any brackets
+19[0-9][0-9].* --> // the year of a movie is normally placed after the movie name
+20[0-9][0-9].* --> // -do-
+((xvid)|((pre-)?dvdrip)|(720)|(1080)|(480p)|(brrip)|(ac3)|(dts)|(bluray)|(dvdscr)).* --> // the quality of print is normally placed after the movie name
+[ ]*$ --> // replace any remaining trailing spaces
